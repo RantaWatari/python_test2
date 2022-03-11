@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calendar</title>
+    </head>
+    <body>
+        <div>
+            <h1>Calendar</h1>
+            <form href="/ttt" method="post">
+            <table>
+                <tr>
+                    <th>SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+                {% for i in count %}
+                    {% if i in range(7,35,7) %}
+                        </tr>
+                    {% endif %}
+                    {% if i in range(0,28,7) %}
+                        <tr class = "day">
+                    {% if not loop.last %}
+                    {% endif %}
+                    {% endif %}
+                    <td>{{a[i]}}<br>am:<input type="checkbox" name="day" value="am{{a[i]}}"><br>pm:<input type="checkbox" name="day" value="pm{{a[i]}}"></td>
+                    
+                {% endfor %}                
+            </table>
+            <input type="submit">
+            </form>
+        </div>
+        {{days}}
+    </body>
+</html>
